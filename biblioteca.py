@@ -24,30 +24,30 @@ def listarTodosDados(arq):
 
 def buscarDados(arq,nome):
     w=0
+    j=0
     arquivo=open(arq,"r")
     linha=arquivo.readlines()
-    vet=[""]*len(linha)                 
-    vetor=[0]*len(linha)
-    
     for i in range(0,len(linha)):
         dados=linha[i].replace("\n","")
         dados=dados.split(";")        
         if(nome in dados):
             w+=1
-            
-            vet[i]={}
-            vet[i]["nome"]=dados[0]
-            vet[i]["email"]=dados[1]
-            vet[i]["sal"]=dados[2]
-            vet[i]["nasc"]=dados[3]
-            vetor[i]=vet[i]
+    vet=listarTodosDados(arq)
+    vetor=[""]*w                    
+    for i in range(0,len(linha):        
+        if(nome in vet[i]):
+            vetor[j]={}
+            vetor[j]["nome"]=dados[0]
+            vetor[j]["email"]=dados[1]
+            vetor[j]["sal"]=dados[2]
+            vetor[j]["nasc"]=dados[3]
+            j+=1
+        
             
     arquivo.close()
-    return removerZeros(vetor)
+    return vetor
 
-def removerZeros(vetor):
-    novo_vetor = [item for item in vetor if item != 0]
-    return novo_vetor                        
+                        
 
 # def buscarDados(arq, nome):
 #     arquivo = open(arq, "r")
