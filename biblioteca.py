@@ -41,9 +41,7 @@ def buscarDados(arq,nome):
             vetor[j]["email"]=dados[1]
             vetor[j]["sal"]=dados[2]
             vetor[j]["nasc"]=dados[3]
-            j+=1
-        
-            
+            j+=1        
     arquivo.close()
     return vetor                  
                     
