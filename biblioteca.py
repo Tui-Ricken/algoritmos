@@ -10,7 +10,7 @@ def listarTodosDados(arq):
     arquivo=open(arq,"r")
     linha=arquivo.readlines()
     vet=[""]*len(linha)
-    for i in range((0, len(linha)):
+    for i in range(0, len(linha)):
         dados=linha[i].replace("\n","")
         dados=dados.split(";")    
         vet[i]={}
@@ -48,7 +48,7 @@ def buscarDados(arq,nome):
             
     arquivo.close()
     return vetor                  
-                    
+                   
 def listarEmail(vet):
     vetor=[""]*len(vet)
     for i in range(0,len(vet)):
@@ -58,36 +58,55 @@ def listarEmail(vet):
 def listarPessoaporAno(arq,data):
     arquivo=open(arq,"r")
     linha=arquivo.readlines()
-    vet=[""]*len(linha)
+    w=0
+    j=0
     for i in range(0,len(linha)):
         dados=linha[i].replace("\n","")
         dados=dados.split(";")
         batata=dados[3].split("/")
         if(data in batata[2]):
-            vet[i]={}
-            vet[i]["nome"]=dados[0]
-            vet[i]["email"]=dados[1]
-            vet[i]["sal"]=dados[2]
-            vet[i]["nasc"]=dados[3]
-                
+            w+=1
+    vetor=listarTodosDados(arq)
+    vet=[""]*w
+    for i in range(0,len(linha)):   
+        dados=linha[i].replace("\n","")
+        dados=dados.split(";")
+        batata=dados[3].split("/")
+        if(data in batata):    
+            vet[j]={}
+            vet[j]["nome"]=dados[0]
+            vet[j]["email"]=dados[1]
+            vet[j]["sal"]=dados[2]
+            vet[j]["nasc"]=dados[3]
+            j+=1 
     arquivo.close()
-    return removerZeros(vet)
+    return vet
 
 def salariosAcima(arq,sal):
     arquivo=open(arq,"r")
     linha=arquivo.readlines()
-    vet=[""]*len(linha)
+    w=0
+    j=0
     for i in range(0,len(linha)):
         dados=linha[i].replace("\n","")
         dados=dados.split(";")
-        if(sal<dados[2]):
-            vet[i]={}
-            vet[i]["nome"]=dados[0]
-            vet[i]["email"]=dados[1]
-            vet[i]["sal"]=dados[2]
-            vet[i]["nasc"]=dados[3]
+        if(sal<float(dados[2])):
+            w+=1
+    vetor=listarTodosDados(arq)  
+    vet=[""]*w        
+    for i in range(0,len(linha)):
+        dados=linha[i].replace("\n","")
+        dados=dados.split(";")
+        if(sal<float(dados[2])):
+        
+            vet[j]={}
+            vet[j]["nome"]=dados[0]
+            vet[j]["email"]=dados[1]
+            vet[j]["sal"]=dados[2]
+            vet[j]["nasc"]=dados[3]
+            j+=1
     arquivo.close()
-    return removerZeros(vet)
+    return vet
 
 def somarSalarios(vet):
     salarios=0
