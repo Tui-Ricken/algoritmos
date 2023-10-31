@@ -34,14 +34,18 @@ def buscarDados(arq,nome):
             w+=1
     vet=listarTodosDados(arq)
     vetor=[""]*w                    
-    for i in range(0,len(linha):        
-        if(nome in vet[i]):
+    for i in range(0,len(linha)):         
+        dados=linha[i].replace("\n","")
+        dados=dados.split(";") 
+        if(nome in dados):
             vetor[j]={}
             vetor[j]["nome"]=dados[0]
             vetor[j]["email"]=dados[1]
             vetor[j]["sal"]=dados[2]
             vetor[j]["nasc"]=dados[3]
-            j+=1        
+            j+=1
+        
+            
     arquivo.close()
     return vetor                  
                     
