@@ -10,7 +10,7 @@ def listarTodosDados(arq):
     arquivo=open(arq,"r")
     linha=arquivo.readlines()
     vet=[""]*len(linha)
-    for i in range(0, len(linha)):
+    for i in range((0, len(linha)):
         dados=linha[i].replace("\n","")
         dados=dados.split(";")    
         vet[i]={}
