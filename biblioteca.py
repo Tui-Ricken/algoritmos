@@ -45,31 +45,8 @@ def buscarDados(arq,nome):
         
             
     arquivo.close()
-    return vetor
-
-                        
-
-# def buscarDados(arq, nome):
-#     arquivo = open(arq, "r")
-#     vet_linhas = arquivo.readlines()
-#     pra_colocar = [0]*len(vet_linhas)
-#     vet = [""] * len(vet_linhas)
-#     for i in range(0, len(vet)):
-#         conteudo = vet_linhas[i].replace("\n", "")
-#         dados = conteudo.split(";")
-#         vet[i] = {}
-#         vet[i]["nome"] = dados[0]
-#         vet[i]["email"] = dados[1]
-#         vet[i]["salario"] = dados[2]
-#         vet[i]["data"] = dados[3]
-#         if nome in vet[i]["nome"]:
-#             pra_colocar[i]=vet[i]
-#     arquivo.close()
-#     return pra_colocar
-            
-                  
-                
-    
+    return vetor                  
+                    
 def listarEmail(vet):
     vetor=[""]*len(vet)
     for i in range(0,len(vet)):
